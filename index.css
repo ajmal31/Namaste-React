@@ -1,0 +1,46 @@
+.header{
+    display: flex;
+    border: solid 1px;
+    
+}
+
+.logo{
+
+    width: 100px
+}
+.nav-items{
+    display: flex;
+    flex-direction: column;
+    padding-right: 40px;
+    width: 100%;
+    align-items: end;
+
+}
+
+.list{
+    display: flex;
+    gap:40px;
+    list-style-type: none;
+}
+.card{
+
+    width: 215px;
+    cursor: pointer;
+    border: solid 1px;
+    margin-top: 40px;
+    padding: 10px;
+    margin: 5px;
+}
+
+
+.card-image{
+
+    width: 100%;
+    
+}
+.body{
+    
+    display: flex;
+    flex-wrap: wrap;
+    
+}
