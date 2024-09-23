@@ -7,13 +7,13 @@ const Card = ({data}) => {
 
   return (
     <>
-      <div className="card">
+      <div className="w-1/5 rounded-lg cursor-pointer hover:bg-gray-200 bg-gray-100 p-3 ">
         <img
-          className="card-image"
+          className="card-image rounded-md mb-5"
           src={CDN_URL+cloudinaryImageId}
         />
 
-        <h1>{name}</h1>
+        <h1 className="font-bold py-3" >{name}</h1>
         <span>{avgRating} ⭐</span>
         <h3>{totalRatingsString}</h3>
         <span>{info.sla.slaString}</span>
