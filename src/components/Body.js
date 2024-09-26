@@ -16,17 +16,23 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const response = await fetch(RESTAURANT_API);
-    const data = await response.json();
-
-    setRestaurants(data.data.cards.slice(3));
-    setAllRestaurants(data.data.cards.slice(3));
+    try {
+      const response = await fetch(RESTAURANT_API);
+      console.log("response",response)
+      const data = await response.json();
+      console.log(data)
+      setRestaurants(data?.data?.cards.slice(3));
+      setAllRestaurants(data?.data?.cards.slice(3));
+    } catch (error) {
+      console.log("error:",error)
+    }
+   
   };
   return (
     <>
       {restaurants.length ? (
-        <div className="pt-20 " >
-          <div className="w-full flex-col justify-center  pt-10 mt-10 pl-[60px]">
+        <div className=" " >
+          <div className="w-full flex-col justify-center  pt-10  pl-[60px]">
             <div className="search  px-10 py-2 flex space-x-5  ">
               <div className="filter-btn">
                 <button
@@ -39,7 +45,7 @@ const Body = () => {
                   }}
                   className="border font-bold px-2 rounded-lg sm:bg-blue-600 md:bg-red-600 lg:bg-yellow-600 xl:bg-green-600 2xl:bg-gray-600 text-white"
                 >
-                  Filter button
+                  Top rated resaurant
                 </button>
               </div>
               <div>
@@ -85,7 +91,7 @@ const Body = () => {
             </div>
         </div>
       ) : (
-        <div className="body">
+        <div className="body flex border border-purple-700 space-x-5 flex-wrap justify-center space-y-5 pt-12">
           {arr.map((elem) => {
             return <Shimmer key={elem} />;
           })}
